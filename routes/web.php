@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
+}); 
+ */
+Route::get('/', 'HomeController@index');
+Route::get('/logout', 'HomeController@Logout');
+Auth::routes();
+Route::group(['middleware' => ['auth']], function () {
+    Route::prefix("admin")->group(function(){
+        Route::get('/', 'HomeController@index_user')->name('admin.home')->middleware('is_admin');
+        
+    });
 });
+
+ 
+//oute::get('/home', 'HomeController@index')->name('home');
