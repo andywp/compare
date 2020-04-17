@@ -1,4 +1,6 @@
-
+<?php
+    $user = Auth::user();
+?>
 
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->

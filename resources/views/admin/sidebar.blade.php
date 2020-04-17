@@ -1,6 +1,7 @@
 <?php
 $url = Request::segment(2);
 $urlDua = Request::segment(3);
+$user = Auth::user();
 ?>
 
 <!-- Main Sidebar Container -->
@@ -35,27 +36,47 @@ $urlDua = Request::segment(3);
                         <p>Home</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="{{ url('admin/product') }}" class="nav-link <?= ($url == 'sop' && $urlDua == '') ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Manage SOP</p>
                     </a>
-                </li>
-                
+                </li> -->
+
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link active">
-                   <i class="fa fa-laptop"></i>
-                    <span>Product</span>
-                    </a>
+                    <a href="#" class="nav-link "><i class="fa fa-laptop"></i><span>Product</span></a>
                     <ul class="nav nav-treeview" style="display: none;">
-                    <li><a href="general.html" class="nav-link" ><i class="fa fa-circle-o"></i> Hosting</a></li>
-                        <li class="nav-item" ><a href="icons.html" class="nav-link" ><i class="fa fa-circle-o"></i> Server</a></li>
-                        <li class="nav-item" ><a href="buttons.html" class="nav-link" ><i class="fa fa-circle-o"></i> SSL</a></li>
-                        <li class="nav-item" ><a href="sliders.html" class="nav-link" ><i class="fa fa-circle-o"></i> Diego VPN</a></li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Manage Hosting
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/hosting_kategori') }}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Kategori Hosting</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/hosting') }}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Data Hosting</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="nav-item"><a href="{{ url('admin/product') }}" class="nav-link"><i class="fa fa-circle-o"></i> Server</a></li>
+                        <li class="nav-item"><a href="buttons.html" class="nav-link"><i class="fa fa-circle-o"></i> SSL</a></li>
+                        <li class="nav-item"><a href="sliders.html" class="nav-link"><i class="fa fa-circle-o"></i> Diego VPN</a></li>
                     </ul>
                 </li>
 
-  
+
 
             </ul>
         </nav>
